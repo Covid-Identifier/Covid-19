@@ -56,7 +56,7 @@ Back-end : Python
 For more detail:
 
 
-Design: UX/UI-AdobeXD
+Prototype : AdobeXD
 
 Programming language: Python
 
