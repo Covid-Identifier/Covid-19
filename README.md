@@ -14,7 +14,7 @@ LAXMAN KOIRALA
 
 ```
 
-# Project Discription
+# Project Discriptions
 
 The web app will help one to stay updated with the Covid-19. Mainly there will be option for knowing weather one is affected with corona virus or not. There will be questions asked to the individual. Through this process one can identify wheather they have it or not. Moreover, one can cheack do they need to be hospitalized or not. There will be one more important option is there will be online service of doctor. They can get help for from those doctors. There will be the functionality of data visualization of covid-19 around the world.
 
@@ -24,7 +24,7 @@ Signup, Login, logout and password Change ---> privacy purpose of you health sta
 
 Lot of questions: List view (Total page: 1)
 
-Your Result visuallization: Detail view (Total page : 1)
+Your Result visualization: Detail view (Total page : 1)
 
 Countries result visualization : Detail view (Total page: 1)
 
