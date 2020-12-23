@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewreport" content="width=device-width, initial-scale=1.0">
+	<title>
+		Covid identifier home page
+	</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet" />
+    <style>
+    body{
+	margin:0;
+	padding:0;
+	background:#fff;
+	font-family: 'Raleway',sans-serif;
+	color: #fff;
+}
+.banner{
+	height: 100vh;
+	width: 100%;
+	background:url('https://healthcare-in-europe.com/media/story_section_image/5134/image-01-fullscreen-01-fullscreen-01-shutterstock-795297598-original-original.jpg');
+	background-position: top;
+	background-size:cover;
+	/*background-attachment: fixed;*/
+	background-repeat: no-repeat;
+}
+.banner .navbar{
+	margin-top:4%;
+}
+.banner .navbar-brand{
+	color: #fff;
+	font-size:1.8em;
+	font-weight: 700;
+	margin-left: 10%;
+}
+.banner .nav{
+	margin-right:10%;
+}
+.banner .nav li a{
+	color:  #000000;
+	font-size: 2.2em;
+}
+
+.banner .info a:hover{
+	background: #e91e63;
+}
+    </style>
+</head>
+<body>
+	<div class="container-fluid banner">
+		<div class="row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-md">
+					<div class="navbar-brand">Covid Identifier</div>
+					<ul class="nav">
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'home' %}">HOME</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'signup' %}">SIGNUP</a>
+						</li>
+
+					</ul>
+				</nav>
+			</div>
+			<div class="col-md-8 offset-md-2 info">
+              <div class="text-center"style="font-size:20px;color:#fffaff">
+  <br>
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="alert alert-success" type="submit" name="" value="login">
+
+
+  </form>
+</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
