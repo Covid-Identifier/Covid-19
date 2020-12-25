@@ -2,7 +2,116 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h2>this is This is test page</h2>
+
+<form name="test" id="test" action = '' method="POST">
+    {% csrf_token %}
+    <div>
+        <p>1. What was your warmest temperature in the past 48 hours?</p>
+        <p><input type="radio" name="question1" value="A">A. More then 40</p>
+        <p><input type="radio" name="question1" value="B">B. Less then 40</p>
+
+    </div>
+    <div>
+        <p>2. What is your age?</p>
+        <p><input type="radio" name="question2" value="C">A. More then 36</p>
+        <p><input type="radio" name="question2" value="D">B. Less then 36</p>
+
+    </div>
+    <div>
+        <p>3. In the past few days, have you had a cough or has your usual cough changed?</p>
+        <p><input type="radio" name="question3" value="E">A. Yes</p>
+        <p><input type="radio" name="question3" value="F">B. No</p>
+
+    </div>
+    <div>
+        <p>4. In the past few days, have you noticed a slight or a sharp decrease in your taste or smell</p>
+        <p><input type="radio" name="question4" value="G">A. Yes</p>
+        <p><input type="radio" name="question4" value="H">B. No</p>
+
+    </div>
+    <div>
+        <p>5. In the past few days, have you had a sore throat and / or unusual muscle aches and / or body aches and / or unusual headaches?
+</p>
+        <p><input type="radio" name="question5" value="I">A. Yes</p>
+        <p><input type="radio" name="question5" value="J">B. No</p>
+
+    </div>
+    <div>
+        <p>6. In the past 24 hours, have you had diarrhea?</p>
+        <p><input type="radio" name="question6" value="K">A. Yes</p>
+        <p><input type="radio" name="question6" value="L">B. No</p>
+
+    </div>
+    <div>
+        <p>7. Have you had unusual fatigue in the past few days?</p>
+        <p><input type="radio" name="question7" value="M">A. Yes</p>
+        <p><input type="radio" name="question7" value="N">B. No</p>
+
+    </div>
+    <div>
+        <p>8. For 24 hours or more, have you been unable to eat or drink?</p>
+        <p><input type="radio" name="question8" value="O">A. Yes</p>
+        <p><input type="radio" name="question8" value="P">B. No</p>
+
+    </div>
+    <div>
+        <p>9. In the past 24 hours, have you noticed any unusual shortness of breath when speaking or making a little effort?
+</p>
+        <p><input type="radio" name="question9" value="Q">A. Yes</p>
+        <p><input type="radio" name="question9" value="R">B. No</p>
+
+    </div>
+
+    <div>
+        <p>10. Do you have a history of cardiovascular disease?
+</p>
+        <p><input type="radio" name="question10" value="S">A. Yes</p>
+        <p><input type="radio" name="question10" value="T">B. No</p>
+
+    </div>
+
+    <div>
+        <p>11. Do you have unbalanced diabetes or with complications (eyes, kidneys)?
+</p>
+        <p><input type="radio" name="question11" value="U">A. Yes</p>
+        <p><input type="radio" name="question11" value="V">B. No</p>
+
+    </div>
+
+    <div>
+        <p>12. Do you have a chronic respiratory disease (obstructive pulmonary disease, severe asthma, pulmonary
+            fibrosis, sleep apnea syndrome, cystic fibrosis) or are you under the care of a pulmonologist?
+</p>
+        <p><input type="radio" name="question12" value="W">A. Yes</p>
+        <p><input type="radio" name="question12"  value="X">B. No</p>
+
+    </div>
+
+    <div>
+        <p>13. Do you have chronic kidney disease requiring dialysis?
+</p>
+        <p><input type="radio" name="question13" value="Y">A. Yes</p>
+        <p><input type="radio" name="question13" value="Z">B. No</p>
+
+    </div>
+
+    <div>
+        <p>14. Are you a pregnant woman in the 3rd trimester of your pregnancy?
+</p>
+        <p><input type="radio" name="question14" value="0">A. Yes</p>
+        <p><input type="radio" name="question14" value="1">B. No</p>
+        <p><input type="radio" name="question14" value="2">B. I Am Male</p>
+
+
+    </div>
+
+    <input type="button" name="give_my_result" value="Submit" onclick="check()">
+
+
+
+
+</form>
+<p id = 'demo'></p>
 
 
 {% endblock %}

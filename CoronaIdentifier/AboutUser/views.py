@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 import pandas as pd
-import numpy as np
+from .models import MyResult
 
 
 # Create your views here.
@@ -13,7 +13,33 @@ def Home(request):
 
 @login_required
 def Test(request):
-    return render(request,'test.html')
+    The_result = ''
+    my_profile = MyResult.objects.get(user=request.user)
+    y = request.POST.get('give_my_result')
+    if request.method == 'POST':
+        my_profile.result = y
+        my_profile.save()
+    if my_profile.result >= 27:
+        The_result = 'Sorry to say, Higher chance of coronat. Visit doctor as soon as possible'
+    if my_profile.result >= 16 and my_profile.result <= 26:
+        The_result = 'Not sure, we recomend you to visit Doctor and please be on quarentine'
+    if my_profile.result <= 15:
+        The_result = "Congratulation, right now you don't have corona. Please come back after 2 days to check here"
+
+    context = {
+        'Result': The_result
+    }
+
+    return render(request,'test.html',context)
+
+
+@login_required
+def Base(request):
+    contex={
+        'user':request.user
+    }
+    return render(request, 'base.html')
+
 
 @login_required
 def Visualization(request):
@@ -66,4 +92,22 @@ def Visualization(request):
 
 @login_required
 def Profile(request):
-    return render(request,'profile.html')
+    The_result = ''
+    my_profile = MyResult.objects.get(user=request.user)
+    y = request.POST.get('give_my_result')
+    if request.method =='POST':
+        my_profile.result = y
+        my_profile.save()
+    if my_profile.result>=27:
+        The_result = 'Sorry to say, Higher chance of coronat. Visit doctor as soon as possible'
+    if my_profile.result>=16 and my_profile.result<=26:
+        The_result = 'Not sure, we recomend you to visit Doctor and please be on quarentine'
+    if my_profile.result<=15:
+        The_result = "Congratulation, right now you don't have corona. Please come back after 2 days to check here"
+
+
+    context = {
+        'Result':The_result
+    }
+    return render(request,'profile.html',context)
+

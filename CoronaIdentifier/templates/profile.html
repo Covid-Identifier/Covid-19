@@ -2,7 +2,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h2>this is profile page</h2>
+<div class="jumbotron">
+  <h1 class="display-4">{{user}}</h1>
+  <p class="lead">Hello. Please, don't be panic it is just a prediction</p>
+  <hr class="my-4">
+  <p>{{Result}}</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub" role="button">Learn more</a>
+  </p>
+</div>
 
 
 {% endblock %}
