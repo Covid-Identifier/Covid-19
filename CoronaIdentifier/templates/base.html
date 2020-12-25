@@ -4,7 +4,11 @@
         <meta charset="utf-8">
         <title>Covid Identifier</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
 
         <style>
             *{
@@ -234,10 +238,8 @@ body{
             <!--header menu start-->
             <div class="header">
                 <div class="header-menu">
-                    <div class="title">Covid <span>Identifi</span></div>
-                    <div class="sidebar-btn">
-                        <i class="fas fa-bars"></i>
-                    </div>
+                    <div class="title">Covid <span>Identifier</span></div>
+
                     <ul>
 
                         <li><a href="{% url 'logout' %}"><i class="fas fa-power-off"></i></a></li>
@@ -250,7 +252,7 @@ body{
                 <div class="sidebar-menu">
                     <center class="profile">
                         <img src="https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2018/08/kitten-440379.jpg?h=c8d00152&itok=1fdekAh2" alt="">
-                        <p>Laxman</p>
+                        <p>{{user}}</p>
                     </center>
                     <li class="item">
                         <a href="{% url 'test' %}" class="menu-btn">
@@ -283,7 +285,7 @@ body{
                         </div>
                     </li>
                     <li class="item">
-                        <a href="#" class="menu-btn">
+                        <a href="http://127.0.0.1:8000/admin" class="menu-btn">
                             <i class="fas fa-info-circle"></i><span>About</span>
                         </a>
                     </li>
@@ -292,11 +294,9 @@ body{
             <!--sidebar end-->
             <!--main container start-->
             <div class="main-container">
-                <div class="card">
                     {% block content %}
 
                      {% endblock %}
-                </div>
 
             </div>
             <!--main container end-->
@@ -310,6 +310,160 @@ body{
             });
         });
         </script>
+
+    <script>
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var chartOptions = {
+    legend: {
+      display: false
+    },
+    scales: {
+      xAxes: [{
+        barPercentage: 1
+      }],
+      yAxes: [
+        // {barPercentage: 1},
+        // {gridLines:{drawBorder: false}},
+        {
+          ticks: {
+            display: false
+          }
+        },
+        // {ticks: {mirror: true}},
+        {
+          display: false
+        },
+
+      ],
+      elements: {
+        rectangle: {
+          borderSkipped: 'left',
+        }
+      }
+    }
+  };
+  var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'horizontalBar',
+
+    // The data for our dataset
+    data: {
+      labels: {{ Name|safe }},
+            datasets: [{
+                data: {{ Case|safe }},
+                label: 'Infected Counts',
+                barThickness:'flex',
+                backgroundColor:'#660000',
+
+            }]
+    },
+
+
+
+    // Configuration options go here
+    options: chartOptions
+  });
+</script>
+
+<script>
+    var ctx2 = document.getElementById('lineChart').getContext('2d');
+		var data2 ={{datasetsForLine|safe}};
+    var chartOptions2 = {
+      legend: {
+        display: true
+      },
+      scales: {
+        yAxes: [{
+          type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+          display: true,
+          position: 'left',
+          id: 'y-axis-1',
+        }, {
+          type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+          display: true,
+          position: 'right',
+          id: 'y-axis-2',
+
+          // grid line settings
+          gridLines: {
+            drawOnChartArea: false, // only want the grid lines for one axis to show up
+          },
+        }],
+      },
+
+    };
+
+
+      var chart2 = new Chart(ctx2, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+          labels: {{ axisvalues|safe }},
+                datasets:data2,
+        },
+
+
+
+        // Configuration options go here
+        options: chartOptions2
+      });
+
+
+
+
+</script>
+
+    <script>
+        function check() {
+              var total = 0;
+              var Result = '';
+              var q1 = document.test.question1.value;
+              var q2 = document.test.question2.value;
+              var q3 = document.test.question3.value;
+              var q4 = document.test.question4.value;
+              var q5 = document.test.question5.value;
+              var q6 = document.test.question6.value;
+              var q7 = document.test.question7.value;
+              var q8 = document.test.question8.value;
+              var q9 = document.test.question9.value;
+              var q10 = document.test.question10.value;
+              var q11 = document.test.question11.value;
+              var q12 = document.test.question12.value;
+              var q13 = document.test.question13.value;
+              var q14 = document.test.question14.value;
+
+
+              if (q1 == 'A') {total = total + 2}
+              if (q2 == 'C') {total = total + 2}
+              if (q3 == 'E') {total = total + 4}
+              if (q4 == 'G') {total = total + 4}
+              if (q5 == 'I') {total = total + 3}
+              if (q6 == 'K') {total = total + 2}
+              if (q7 == 'M') {total = total + 1}
+              if (q8 == 'O') {total = total + 1}
+              if (q9 == 'Q') {total = total + 3}
+              if (q10 == 'S') {total = total + 3}
+              if (q11 == 'U') {total = total + 1}
+              if (q12 == 'W') {total = total + 1}
+              if (q13 == 'Y') {total = total + 1}
+              if (q14 == '0') {total = total + 3}
+
+
+
+
+
+
+
+                      document.getElementById("demo").innerHTML = total;
+        }
+
+
+
+</script>
+
+
 
     </body>
 </html>
