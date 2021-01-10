@@ -8,7 +8,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
 
         <style>
             *{
@@ -26,7 +27,7 @@ body{
 
 .wrapper .header{
   z-index: 1;
-  background: #22242A;
+  background: #330000;
   position: fixed;
   width: calc(100% - 0%);
   height: 70px;
@@ -44,15 +45,12 @@ body{
 }
 
 .wrapper .header .header-menu .title{
-  color: #fff;
+  color: #ff6666;
   font-size: 25px;
   text-transform: uppercase;
   font-weight: 900;
 }
 
-.wrapper .header .header-menu .title span{
-  color: #4CCEE8;
-}
 
 .wrapper .header .header-menu .sidebar-btn{
   color: #fff;
@@ -65,16 +63,13 @@ body{
   transition-property: color;
 }
 
-.wrapper .header .header-menu .sidebar-btn:hover{
-  color: #4CCEE8;
-}
 
 .wrapper .header .header-menu ul{
   display: flex;
 }
 
 .wrapper .header .header-menu ul li a{
-  background: #fff;
+  background: red;
   color: #000;
   display: block;
   margin: 0 10px;
@@ -95,7 +90,7 @@ body{
 
 .wrapper .sidebar{
   z-index: 1;
-  background: #2F323A;
+  background:#00004d;
   position: fixed;
   top: 70px;
   width: 250px;
@@ -103,10 +98,6 @@ body{
   transition: 0.3s;
   transition-property: width;
   overflow-y: auto;
-}
-
-.wrapper .sidebar .sidebar-menu{
-  overflow: hidden;
 }
 
 .wrapper .sidebar .sidebar-menu .profile img{
@@ -238,7 +229,7 @@ body{
             <!--header menu start-->
             <div class="header">
                 <div class="header-menu">
-                    <div class="title">Covid <span>Identifier</span></div>
+                    <div class="title">Covid Identifier</div>
 
                     <ul>
 
@@ -353,7 +344,7 @@ body{
                 data: {{ Case|safe }},
                 label: 'Infected Counts',
                 barThickness:'flex',
-                backgroundColor:'#660000',
+                backgroundColor:'#FAD7A0',
 
             }]
     },
