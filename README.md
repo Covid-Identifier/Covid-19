@@ -71,5 +71,14 @@ Database: sqlite/django administration or sql
 # Trello
 https://trello.com/b/pWasbuH4/team-project
 
+# Run Application
+
+install python django
+
+Clone https://github.com/Covid-Identifier/Covid-19
+```
+run 'python3 manage.py runserver'
+Start development server at http://127.0.0.1:8000
+```
 
 
