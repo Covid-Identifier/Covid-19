@@ -57,6 +57,7 @@ For more detail:
 
 
 Prototype : AdobeXD
+
 https://xd.adobe.com/view/3e8abd3e-eafc-4880-945b-9766d907de4d-6bd9/
 
 Programming language: Python
@@ -65,7 +66,7 @@ Data visualization : chart.js
 
 Data Analysis : pandas,numpy,python list
 
-Database: sqlite/django adminstration or sql
+Database: sqlite/django administration or sql
 
 # Trello
 https://trello.com/b/pWasbuH4/team-project
