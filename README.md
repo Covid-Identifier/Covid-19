@@ -70,7 +70,7 @@ Database: sqlite/django adminstration or sql
 # Trello
 https://trello.com/b/pWasbuH4/team-project
 
-#Run Application
+# Run Application
 
 install python django
 
