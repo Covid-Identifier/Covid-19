@@ -104,29 +104,25 @@ def Profile(request):
     if my_profile.result >= 27:
         The_result = 'Sorry to say, Higher chance of coronat. Visit doctor as soon as possible'
 
-    if my_profile.result>=16 and my_profile.result<=26:
+    if 16 <= my_profile.result <= 26:
         The_result = 'Not sure, we recommend you to visit Doctor and please be on quarentine'
-    if my_profile.result<=15:
-
-    if my_profile.result>=16 and my_profile.result<=26:
-        The_result = 'Not sure, we recomend you to visit Doctor and please be on quarentine'
     if my_profile.result <= 15:
-
         The_result = "Congratulation, right now you don't have corona. Please come back after 2 days to check here"
 
     context = {
         'Result': The_result
     }
 
-    
-    return render(request,'profile.html',context)
+    return render(request, 'profile.html', context)
+
 
 class profileEdit(UpdateView):
-    model =  MyResult
+    model = MyResult
     fields = ['result']
     template_name = 'ResultEdit.html'
     success_url = '/profile/'
     context_object_name = 'form'
+
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
@@ -137,16 +133,18 @@ def PK(request):
     context = {
         'pk': current_user.id
     }
-    return render(request, 'base.html',context)
-=======
-    return render(request,'profile.html',context)
+    return render(request, 'base.html', context)
+
+    return render(request, 'profile.html', context)
+
 
 class profileEdit(UpdateView):
-    model =  MyResult
+    model = MyResult
     fields = ['result']
     template_name = 'ResultEdit.html'
     success_url = '/profile/'
     context_object_name = 'form'
+
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
@@ -157,5 +155,4 @@ def PK(request):
     context = {
         'pk': current_user.id
     }
-    return render(request, 'base.html',context)
-
+    return render(request, 'base.html', context)
