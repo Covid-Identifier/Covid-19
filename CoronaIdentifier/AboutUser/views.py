@@ -12,6 +12,7 @@ def Home(request):
     else:
         return HttpResponseRedirect('/test/')
 
+
 @login_required
 def Test(request):
     The_result = ''
@@ -22,7 +23,7 @@ def Test(request):
         my_profile.save()
     if my_profile.result >= 27:
         The_result = 'Sorry to say, Higher chance of coronat. Visit doctor as soon as possible'
-    if my_profile.result >= 16 and my_profile.result <= 26:
+    if 16 <= my_profile.result <= 26:
         The_result = 'Not sure, we recomend you to visit Doctor and please be on quarentine'
     if my_profile.result <= 15:
         The_result = "Congratulation, right now you don't have corona. Please come back after 2 days to check here"
@@ -31,13 +32,13 @@ def Test(request):
         'Result': The_result
     }
 
-    return render(request,'test.html',context)
+    return render(request, 'test.html', context)
 
 
 @login_required
 def Base(request):
-    contex={
-        'user':request.user
+    contex = {
+        'user': request.user
     }
     return render(request, 'base.html')
 
@@ -53,7 +54,7 @@ def Visualization(request):
     CountryAndNumber = Corona_update[['Country/Region', Corona_update.columns[-1]]].groupby('Country/Region').sum()
 
     CountryAndNumber = CountryAndNumber.reset_index()
-    CountryAndNumber.columns = ['Country/Region', 'cases']
+    CountryAndNumbeqr.columns = ['Country/Region', 'cases']
     CountryAndNumber = CountryAndNumber.sort_values(by='cases', ascending=False)
     countryName = CountryAndNumber['Country/Region'].values.tolist()
     countryCase = CountryAndNumber['cases'].values.tolist()
@@ -76,7 +77,7 @@ def Visualization(request):
         {'label': 'Rolling Mean 4 days', 'data': countryDataSpe['rollingMean'].values.tolist(), 'borderColor': 'blue',
          'backgroundColor': 'blue', 'fill': 'false'}
 
-        ]
+    ]
 
     context = {
         'totalcase': totalcase,
@@ -91,25 +92,33 @@ def Visualization(request):
     }
     return render(request, 'visualization.html', context)
 
+
 @login_required
 def Profile(request):
     The_result = ''
     my_profile = MyResult.objects.get(user=request.user)
     y = request.POST.get('give_my_result')
-    if request.method =='POST':
+    if request.method == 'POST':
         my_profile.result = y
         my_profile.save()
-    if my_profile.result>=27:
+    if my_profile.result >= 27:
         The_result = 'Sorry to say, Higher chance of coronat. Visit doctor as soon as possible'
+
     if my_profile.result>=16 and my_profile.result<=26:
         The_result = 'Not sure, we recommend you to visit Doctor and please be on quarentine'
     if my_profile.result<=15:
+
+    if my_profile.result>=16 and my_profile.result<=26:
+        The_result = 'Not sure, we recomend you to visit Doctor and please be on quarentine'
+    if my_profile.result <= 15:
+
         The_result = "Congratulation, right now you don't have corona. Please come back after 2 days to check here"
 
-
     context = {
-        'Result':The_result
+        'Result': The_result
     }
+
+    
     return render(request,'profile.html',context)
 
 class profileEdit(UpdateView):
@@ -129,3 +138,24 @@ def PK(request):
         'pk': current_user.id
     }
     return render(request, 'base.html',context)
+=======
+    return render(request,'profile.html',context)
+
+class profileEdit(UpdateView):
+    model =  MyResult
+    fields = ['result']
+    template_name = 'ResultEdit.html'
+    success_url = '/profile/'
+    context_object_name = 'form'
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+
+def PK(request):
+    current_user = request.user
+    context = {
+        'pk': current_user.id
+    }
+    return render(request, 'base.html',context)
+
