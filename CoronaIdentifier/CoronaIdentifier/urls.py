@@ -16,7 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Authentication.views import Signup,Login,Logout,Change_Password
-from AboutUser.views import Test,Visualization,Profile,Home
+from AboutUser.views import Test,Visualization,Profile,Home,profileEdit
+
+pk = ''
+def PK(request):
+    global pk
+    current_user = request.user
+    pk=current_user.id
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,5 +36,6 @@ urlpatterns = [
     path('test/', Test, name='test'),
     path('visualization/', Visualization, name='visualization'),
     path('profile/', Profile, name='profile'),
+    path('myresult/<int:pk>/',profileEdit.as_view(),name='resultEdit'),
 
 ]
