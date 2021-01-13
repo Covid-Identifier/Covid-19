@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <p class="lead">Please, Enter your score which you got from Quationaries Form</p>
+
+
+  <form action="" method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    {% for fm in form %}
+    <div class="form-group">
+      {{fm.label_tag}}
+      {{fm}}
+    {{fm.errors|striptags}}.
+    <hr>
+    </div>
+    {% endfor %}
+    <input class="btn btn-danger" type="submit" name="" value="Let's Go">
+  </form>
+
+  {{u}} {{u}}
+</div>
+
+{% endblock %}

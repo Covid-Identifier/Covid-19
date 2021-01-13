@@ -3,6 +3,8 @@
 {% load static %}
 {% block content %}
 
+<div class=" container" style = 'background-color:#ffb3b3;border: 2px solid black;border-radius: 8px;'>
+
 <form name="test" id="test" action = '' method="POST">
     {% csrf_token %}
     <div>
@@ -100,18 +102,23 @@
 </p>
         <p><input type="radio" name="question14" value="0">A. Yes</p>
         <p><input type="radio" name="question14" value="1">B. No</p>
-        <p><input type="radio" name="question14" value="2">B. I Am Male</p>
+        <p><input type="radio" name="question14" value="2">C. I Am Male</p>
 
 
     </div>
 
-    <input type="button" name="give_my_result" value="Submit" onclick="check()">
+    <div style="color:red">Please note!! Your score is <p id = 'demo'></p> </div>
+
+
+    <input type="button"  value="Submit" onclick="check()">
 
 
 
 
 </form>
-<p id = 'demo'></p>
+
+ </div>
+
 
 
 {% endblock %}

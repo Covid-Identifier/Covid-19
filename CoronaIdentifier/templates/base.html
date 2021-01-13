@@ -255,7 +255,10 @@ body{
                             <i class="fas fa-user-circle"></i><span>Profile <i class="fas fa-chevron-down drop-down"></i></span>
                         </a>
                         <div class="sub-menu">
-                            <a href="{% url 'profile' %}"><i class="fas fa-bell"></i><span>Result</span></a>
+                            <a href="{% url 'profile' %}"><i class="fas fa-bell"></i><span>Final Result</span></a>
+                        </div>
+                        <div class="sub-menu">
+                            <a href="{% url 'resultEdit' pk=1 %}"><i class="fas fa-bell"></i><span>Enter Result</span></a>
                         </div>
                     </li>
                     <li class="item" id="messages">
