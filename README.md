@@ -14,6 +14,15 @@ LAXMAN KOIRALA
 
 ```
 
+## Individual Role/Task
+-Laxman Koirala(Backend and automation testing(selenium))
+
+-Lucky Ogogo(Frontend and Manual testing)
+
+-Yahya Bahos(Team leader, Idea generator, wiki)
+
+-Md Ashraf Ahmed(Designer(UI/UX), wiki, Data collector) 
+
 # Project Discriptions
 
 The web app will help one to stay updated with the Covid-19. We did implement a simulation test to help to see how serious are the symptoms and what is the risk of having covid 19. There will be questions asked to the individual. Through this process one can identify whether they have it or not. Moreover, user can check do they need to be hospitalized or not. There will be the functionality of data visualization of the spreading of covid-19 around the world.
