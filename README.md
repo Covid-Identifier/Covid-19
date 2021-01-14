@@ -89,5 +89,23 @@ Clone https://github.com/Covid-Identifier/Covid-19
 run 'python3 manage.py runserver'
 Start development server at http://127.0.0.1:8000
 ```
+# Setup from scratch
+Set up process:
 
+Create virtual environment:
+```
+python --version
+py -m pip install virtualwrapper-win
+mkvirtualenv myEnv
+py -m pip install Django
+
+```
+
+Running django project
+```
+activate myEnv
+cd (path of project)
+pip install pandas
+python manage.py runserver
+```
 
