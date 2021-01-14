@@ -14,19 +14,28 @@ LAXMAN KOIRALA
 
 ```
 
+## Individual Role/Task
+-Laxman Koirala(Backend and automation testing(selenium))
+
+-Lucky Ogogo(Frontend and Manual testing)
+
+-Yahya Bahos(Team leader, Idea generator, wiki)
+
+-Md Ashraf Ahmed(Designer(UI/UX), wiki, Data collector) 
+
 # Project Discriptions
 
-The web app will help one to stay updated with the Covid-19. Mainly there will be option for knowing weather one is affected with corona virus or not. There will be questions asked to the individual. Through this process one can identify wheather they have it or not. Moreover, one can cheack do they need to be hospitalized or not. There will be one more important option is there will be online service of doctor. They can get help for from those doctors. There will be the functionality of data visualization of covid-19 around the world.
+The web app will help one to stay updated with the Covid-19. We did implement a simulation test to help to see how serious are the symptoms and what is the risk of having covid 19. There will be questions asked to the individual. Through this process one can identify whether they have it or not. Moreover, user can check do they need to be hospitalized or not. There will be the functionality of data visualization of the spreading of covid-19 around the world.
 
 Core functionality:
  
 Signup, Login, logout and password Change ---> privacy purpose of you health status, || create view (Total page: 4)
 
-Lot of questions: List view (Total page: 1)
+Serie of questions: List view (Total page: 1)
 
-Your Result visualization: Detail view (Total page : 1)
+get the Result visualization: Detail view (Total page : 1)
 
-Countries result visualization : Detail view (Total page: 1)
+Countries covid spread visualization : Detail view (Total page: 1)
 
 Conclusion :: 7 pages in whole web
 
@@ -58,8 +67,6 @@ For more detail:
 
 Prototype : AdobeXD
 
-https://xd.adobe.com/view/3e8abd3e-eafc-4880-945b-9766d907de4d-6bd9/
-
 Programming language: Python
 
 Data visualization : chart.js
@@ -80,5 +87,23 @@ Clone https://github.com/Covid-Identifier/Covid-19
 run 'python3 manage.py runserver'
 Start development server at http://127.0.0.1:8000
 ```
+# Setup from scratch
+Set up process:
 
+Create virtual environment:
+```
+python --version
+py -m pip install virtualwrapper-win
+mkvirtualenv myEnv
+py -m pip install Django
+
+```
+
+Running django project
+```
+activate myEnv
+cd (path of project)
+pip install pandas
+python manage.py runserver
+```
 
